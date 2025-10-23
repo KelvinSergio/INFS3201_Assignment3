@@ -18,12 +18,12 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 
-// Handlebars without a default layout
+// Handlebars without a default layout!
 app.engine('hbs', engine({ extname: '.hbs', layoutsDir: false, defaultLayout: false }));
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
 
-// Static + form parsing
+// Static and form parsing
 app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: false }));
 
