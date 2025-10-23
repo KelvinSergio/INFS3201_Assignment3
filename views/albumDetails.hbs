@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{{album.title}}</title>
+  <link rel="stylesheet" href="/public/css/styles.css">
+  <style>
+    .thumb {
+      max-width: 140px;
+      border-radius: 10px;
+      display: block;
+    }
+    .photo-item {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .photo-meta {
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>{{album.title}}</h1>
+    {{#if album.description}}
+      <p class="muted">{{album.description}}</p>
+    {{/if}}
+    <p><a href="/">← Back to Albums</a></p>
+  </header>
+
+  <main>
+    {{#if photos}}
+      {{#if photos.length}}
+        <p><strong>{{photos.length}}</strong> photos</p>
+        <ul class="photo-list">
+          {{#each photos}}
+            <li class="photo-item">
+              <a href="/photos/{{_id}}">
+                <img class="thumb" src="/public/photos/{{filename}}" alt="{{title}}">
+              </a>
+              <div class="photo-meta">
+                <a href="/photos/{{_id}}"><strong>{{title}}</strong></a>
+              </div>
+            </li>
+          {{/each}}
+        </ul>
+      {{else}}
+        <p>No photos in this album.</p>
+      {{/if}}
+    {{else}}
+      <p>No photos in this album.</p>
+    {{/if}}
+  </main>
+</body>
+</html>
+
+
+
+

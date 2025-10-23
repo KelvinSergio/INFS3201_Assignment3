@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Albums</title>
+  <link rel="stylesheet" href="/public/css/styles.css">
+</head>
+<body>
+  <header><h1>Albums</h1></header>
+  <main>
+    {{#if albums.length}}
+      <ul class="album-list">
+        {{#each albums}}
+          <li class="album-card">
+            <h2><a href="/albums/{{_id}}">{{title}}</a></h2>
+            {{#if description}}<p class="muted">{{description}}</p>{{/if}}
+            <p><strong>{{count}}</strong> photo(s)</p>
+          </li>
+        {{/each}}
+      </ul>
+    {{else}}
+      <p>No albums yet.</p>
+    {{/if}}
+  </main>
+</body>
+</html>
